@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f2efe5" />
+    <meta name="description" content="Forecast how six AI models will split on the exact same question." />
+    <title>Faultline Forecast — Predict where intelligence splits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./config.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@pollinations/ui@0.1.0-alpha.20/dist/connect.js"></script>
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#forecast">Skip to forecast console</a>
+    <div class="paper-noise" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#top"><span class="brand-mark">F/F</span><span>Faultline<br />Forecast</span></a>
+      <nav aria-label="Primary"><a href="#forecast">Forecast</a><a href="#method">Method</a><a href="https://github.com/pollinations/pollinations/issues/19183" target="_blank" rel="noreferrer">Quest #19183 ↗</a></nav>
+      <div class="wallet"><small>MODEL ACCESS</small><polli-connect id="polliConnect" budget="3" expiry="7" models="openai/gpt-5.4-nano,deepseek/deepseek-v4.1-flash,z-ai/glm-5.3-flash,nvidia/nemotron-3.5-lightning,meta/llama-3.3-70b-instruct,moonshotai/kimi-k3.1-pro" hide-buy-pollen menu-links='[{"label":"Quest #19183","href":"https://github.com/pollinations/pollinations/issues/19183","icon":"app"}]'></polli-connect></div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">ONE QUESTION / SIX LABS / NO PEEKING</p>
+          <h1 id="hero-title">Predict where<br />intelligence <em>splits.</em></h1>
+          <p class="lede">Ask six AI models the exact same question. Lock your forecast before the answers arrive. Then inspect the consensus, the minority, and the assumptions hiding underneath both.</p>
+          <div class="hero-actions"><a class="button black" href="#forecast">MAKE A FORECAST <span>↓</span></a><button class="button outline" id="heroDemo" type="button">RUN FREE DEMO</button></div>
+          <div class="microfacts"><span>06 MODELS</span><span>06 LABS</span><span>01 IDENTICAL PROMPT</span></div>
+        </div>
+        <div class="hero-chart" aria-label="An editorial split chart showing six model votes">
+          <div class="axis"><span>OPTION A</span><span>FAULTLINE</span><span>OPTION B</span></div>
+          <div class="fault"></div>
+          <div class="vote vote-1 a"><b>01</b><small>OPENAI</small></div>
+          <div class="vote vote-2 b"><b>02</b><small>DEEPSEEK</small></div>
+          <div class="vote vote-3 a"><b>03</b><small>Z.AI</small></div>
+          <div class="vote vote-4 a"><b>04</b><small>NVIDIA</small></div>
+          <div class="vote vote-5 b"><b>05</b><small>META</small></div>
+          <div class="vote vote-6 a"><b>06</b><small>MOONSHOT</small></div>
+          <div class="split-number"><strong>?</strong><span>FORECAST<br />THE SPLIT</span></div>
+          <p><span>LIVE OPINION FIELD</span> / ANSWERS HIDDEN UNTIL YOU COMMIT</p>
+        </div>
+      </section>
+
+      <section class="forecast-section" id="forecast" aria-labelledby="forecast-title">
+        <div class="section-head"><div><p class="eyebrow">FORECAST DESK</p><h2 id="forecast-title">Write the question.<br /><em>Call the fracture.</em></h2></div><div class="desk-status"><small>FIELD STATUS</small><strong id="fieldStatus">UNPOLLED</strong></div></div>
+
+        <div class="forecast-shell">
+          <section class="briefing">
+            <div class="panel-label"><span>01 / QUESTION</span><span>ALL MODELS SEE THIS</span></div>
+            <label for="question">BINARY QUESTION</label>
+            <textarea id="question" maxlength="320">Should a city let an AI decide how to allocate emergency shelter during a disaster?</textarea>
+            <div class="options-grid"><div><label for="optionA">OPTION A</label><input id="optionA" maxlength="90" value="Yes — with human oversight" /></div><div><label for="optionB">OPTION B</label><input id="optionB" maxlength="90" value="No — humans must decide" /></div></div>
+            <div class="models"><small>SIX INDEPENDENT RESPONDENTS</small><div class="model-row"><span>GPT-5.4<br /><b>OpenAI</b></span><span>DeepSeek V4.1<br /><b>DeepSeek</b></span><span>GLM-5.3<br /><b>Z.ai</b></span><span>Nemotron 3.5<br /><b>NVIDIA</b></span><span>Llama 3.3<br /><b>Meta</b></span><span>Kimi K3.1<br /><b>Moonshot</b></span></div></div>
+          </section>
+
+          <aside class="prediction">
+            <div class="panel-label"><span>02 / YOUR CALL</span><span>LOCK BEFORE REVEAL</span></div>
+            <p>What percentage of models will choose <strong>Option A</strong>?</p>
+            <output id="predictionValue">50%</output>
+            <input id="prediction" type="range" min="0" max="100" step="10" value="50" aria-label="Predicted Option A share" />
+            <div class="scale"><span>0%</span><span>50%</span><span>100%</span></div>
+            <div class="prediction-bar"><i id="predictionBar"></i><span></span></div>
+            <div class="actions"><button class="button red full" id="runLive" type="button">LOCK + POLL SIX MODELS</button><button class="button outline full" id="runDemo" type="button">ZERO-POLLEN DEMO</button><button class="reset" id="resetPoll" type="button">RESET FORECAST</button></div>
+            <p class="privacy">A live reveal makes six bounded requests using the temporary Pollinations key you approve. Only this direct button press can spend Pollen. Nothing is stored.</p>
+          </aside>
+        </div>
+
+        <section class="results" id="results" hidden aria-labelledby="results-title">
+          <div class="results-head"><div><p class="eyebrow">FIELD REPORT</p><h3 id="results-title">The faultline is visible.</h3></div><span id="resultMode">LIVE POLL</span></div>
+          <div class="score-grid"><article><small>ACTUAL OPTION A</small><strong id="actualA">—</strong></article><article><small>YOUR FORECAST</small><strong id="forecastScore">—</strong></article><article><small>ACCURACY SCORE</small><strong id="accuracyScore">—</strong></article><article><small>CONSENSUS</small><strong id="consensusLabel">—</strong></article></div>
+          <div class="actual-split"><div id="splitA"><span>OPTION A</span><b id="splitALabel">0%</b></div><div id="splitB"><b id="splitBLabel">0%</b><span>OPTION B</span></div></div>
+          <div class="answer-grid" id="answerGrid"></div>
+          <div class="minority" id="minorityReport"><small>MINORITY REPORT</small><p>Waiting for the field.</p></div>
+        </section>
+      </section>
+
+      <section class="method" id="method" aria-labelledby="method-title">
+        <div class="method-copy"><p class="eyebrow">COMPARISON WITHOUT CONTAMINATION</p><h2 id="method-title">Same words in.<br /><em>Different minds out.</em></h2><p>Every model receives the same neutral system instruction, question, and two options. They answer independently, before seeing any other result or your forecast.</p></div>
+        <div class="method-grid"><article><span>01</span><h3>Identical prompt</h3><p>Only the model field changes. The question, options, token limit and requested structure stay fixed.</p></article><article><span>02</span><h3>Structured evidence</h3><p>Each answer includes a choice, confidence, concise argument and one assumption that could change the vote.</p></article><article><span>03</span><h3>Code counts the vote</h3><p>The interface computes the split and your score. No seventh model summarizes or grades the others.</p></article></div>
+      </section>
+    </main>
+
+    <footer><a class="brand" href="#top"><span class="brand-mark">F/F</span><span>Faultline<br />Forecast</span></a><p>Built for Pollinations Quest #19183 · one question, every lab, your forecast first.</p><a href="https://pollinations.ai/?ref=badge" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai" /></a></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

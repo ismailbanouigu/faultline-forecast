@@ -1,1 +1,1 @@
-window.FAULTLINE_FORECAST_CONFIG = { appKey: "" };
+window.FAULTLINE_FORECAST_CONFIG = { appKey: "pk_gR34YDVKZR2H9JaK" };

@@ -6,6 +6,13 @@ Faultline Forecast is a prediction game for [Pollinations Quest #19183](https://
 
 ![Faultline Forecast live app](docs/faultline-forecast.png)
 
+## Live deployment
+
+- Public app: [faultline-forecast.jm716111.chatgpt.site](https://faultline-forecast.jm716111.chatgpt.site/)
+- Access: public, with no login required to load the interface.
+- Availability: re-verified on 2026-11-13 with an HTTP `200 OK` response and the `Faultline Forecast` application title in the returned page.
+- Visual evidence: the screenshot above was captured from the live public deployment.
+
 ## How it works
 
 - Six models from six labs receive the same system prompt, question, and two options.

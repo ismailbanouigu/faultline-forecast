@@ -4,6 +4,8 @@
 
 Faultline Forecast is a prediction game for [Pollinations Quest #19183](https://github.com/pollinations/pollinations/issues/19183). Ask six AI models the exact same binary question, forecast how the vote will split, then reveal every answer, confidence score, argument, and hidden assumption.
 
+![Faultline Forecast live app](docs/faultline-forecast.png)
+
 ## How it works
 
 - Six models from six labs receive the same system prompt, question, and two options.
